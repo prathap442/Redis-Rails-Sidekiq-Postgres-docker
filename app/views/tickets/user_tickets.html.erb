@@ -1,0 +1,21 @@
+<table border="2">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>user_email</th>
+      <th>Ticket id</th>
+      <th>Event Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <%@user_tickets.each do |user_ticket|%>
+        <td><%=user_ticket.user.username%></td>
+        <td><%=user_ticket.user.email%></td>
+        <td><%=user_ticket.id%></td>
+        <td><%=user_ticket.event.id%></td>
+      <%end%>
+    </tr>
+  </tbody>
+</table>
+<%=link_to "Users",users_path%>
