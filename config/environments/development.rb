@@ -28,7 +28,11 @@ Rails.application.configure do
   config.cache_store = :redis_store, {
     expires_in: 1.hour,
     namespace: 'cache',
-    redis: { host: 'localhost', port: 6379, db: 0 },
+    redis: { 
+      host: '172.23.0.3"',
+      port: 6379,
+      db: 0
+    }
   }
 
   # Don't care if the mailer can't send.
@@ -56,4 +60,6 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.active_job.queue_adapter = :sidekiq
 end

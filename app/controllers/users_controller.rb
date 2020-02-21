@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    GuestsCleanupJob.perform_async('hard')
   end
 
   # GET /users/1

@@ -1,4 +1,6 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
   post 'tickets/user_tickets', to: 'tickets#user_tickets'
   get 'tickets/user_tickets', to: 'tickets#user_tickets'
   get 'tickets/event_tickets_count', to:'tickets#event_tickets_count'
